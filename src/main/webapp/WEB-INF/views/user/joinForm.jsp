@@ -20,6 +20,8 @@
 			<input type="email" class="form-control" placeholder="Enter email" id="email">
 		</div>
 		
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		
 	</form>
 	<button id="btn-save" class="btn btn-primary">회원가입 완료</button>
 	
