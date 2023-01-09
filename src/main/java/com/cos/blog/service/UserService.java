@@ -15,16 +15,30 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	@Transactional
-	public int 회원가입(Users user) {
+	public void 회원가입(Users user) {
 		
-		try {
-			userRepository.save(user);
-			return 1;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("UserService : 회원가입() : "+e.getMessage());
-		}
-		return -1;
+		userRepository.save(user);
+		
 	}
+//	public int 회원가입(Users user) {
+//		
+//		try {
+//			userRepository.save(user);
+//			return 1;
+//		}
+//		catch(Exception e) {
+//			e.printStackTrace();
+//			System.out.println("UserService : 회원가입() : "+e.getMessage());
+//		}
+//		return -1;
+//	}
+	
+	@Transactional(readOnly = true)  //Select 할때 트랜잭션 시작, 서비스 종료시에 트랜잭션 종료 (정합성 유지)
+	public Users 로그인(Users user) {
+		
+		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()); //데이터를 여러번 조회하더라도 같은데이터가 찾아진다. 
+		
+	}
+	
+	
 }
