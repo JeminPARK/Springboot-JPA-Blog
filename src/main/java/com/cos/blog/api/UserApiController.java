@@ -32,6 +32,7 @@ public class UserApiController {
 		return new ResponseDTO<Integer>(HttpStatus.OK.value(), 1);	//자바 오브젝트를 JSON으로 변환해서 리턴 (Jackson)사용
 	}
 	
+	//스프링시큐리티 이용해서 로그인
 	@PostMapping("/api/user/login")
 	public ResponseDTO<Integer> login(@RequestBody Users user) {
 		System.out.println("UseApiController : login 호출됨");
