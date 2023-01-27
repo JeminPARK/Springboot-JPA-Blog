@@ -5,8 +5,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.2.6.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cos</groupId>
 	<artifactId>blog</artifactId>
@@ -15,51 +15,42 @@
 	<description>My First Blog Project</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<webapp.lib>${basedir}/src/main/webapp/WEB-INF/lib</webapp.lib>
 	</properties>
+
 	<dependencies>
 		<!-- 추가 라이브러리 시작 -->
 		<!-- 시큐리티 태그 라이브러리 -->
-		<!-- 
 		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-taglibs</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
 		</dependency>
-		-->
-		
 		<!-- JSP 템플릿 엔진 -->
 		<dependency>
-		  <groupId>org.apache.tomcat.embed</groupId>
-		  <artifactId>tomcat-embed-jasper</artifactId>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
-		
 		<!-- JSTL -->
 		<dependency>
-		  <groupId>javax.servlet</groupId>
-		  <artifactId>jstl</artifactId>
-		  <version>1.2</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
-		
-		
 		<!-- 추가 라이브러리 종료 -->
-		
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
-		
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.2.6.RELEASE</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -67,11 +58,13 @@
 			<optional>true</optional>
 		</dependency>
 		
-		
 		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
+			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc8</artifactId>
-			<scope>runtime</scope>
+			<version>21.8.0.0</version>
+			<scope>system</scope>
+			<systemPath>${webapp.lib}/ojdbc8.jar</systemPath>
+			
 		</dependency>
 		
 		<dependency>
@@ -82,17 +75,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -109,5 +99,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
